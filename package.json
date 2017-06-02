@@ -1,0 +1,35 @@
+{
+  "name": "react_technical_test",
+  "version": "1.0.0",
+  "description": "Simple web page for Octopus React technical test.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "open:dist": "babel-node tools/distServer.js",
+    "security-check": "nsp check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximebl/ReactTechnicalTest.git"
+  },
+  "author": "Maxime Bruneau-Lavoie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maximebl/ReactTechnicalTest/issues"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "npm-run-all": "^4.0.2",
+    "nsp": "^2.6.3",
+    "open": "0.0.5",
+    "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "jest": {}
+}
