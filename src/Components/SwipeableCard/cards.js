@@ -2,6 +2,8 @@
 
 export default class Cards {
     constructor(){
+        console.log('card!');
+        
         this.cards = document.querySelectorAll('.card');
 
         this.onStart = this.onStart.bind(this);

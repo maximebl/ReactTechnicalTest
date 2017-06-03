@@ -4,7 +4,8 @@
   "description": "Simple web page for Octopus React technical test.",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel security-check open:src",
+    "start": "npm-run-all --parallel security-check pack open:src",
+    "pack": "webpack --config webpack.config.dev.js",
     "open:src": "babel-node buildScripts/srcServer.js",
     "open:dist": "babel-node tools/distServer.js",
     "security-check": "nsp check"
@@ -22,14 +23,24 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.4",
     "npm-run-all": "^4.0.2",
     "nsp": "^2.6.3",
     "open": "0.0.5",
-    "webpack": "^2.6.1"
+    "style-loader": "^0.18.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.10.2"
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "axios": "^0.16.1",
+    "express": "^4.15.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "jest": {}
 }
