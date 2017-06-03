@@ -13513,7 +13513,7 @@ var Form = function (_React$Component) {
     _this.state = {
       userName: ''
     };
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
   }
 
@@ -13523,6 +13523,7 @@ var Form = function (_React$Component) {
       var _this2 = this;
 
       event.preventDefault();
+      debugger;
       _axios2.default.get('https://api.github.com/users/' + this.state.userName).then(function (resp) {
         _this2.props.onSubmit(resp.data);
         _this2.setState({ userName: '' });
@@ -13565,6 +13566,7 @@ var App = function (_React$Component2) {
     _this4.state = {
       cards: []
     };
+    _this4.addNewCard = _this4.addNewCard.bind(_this4);
     return _this4;
   }
 

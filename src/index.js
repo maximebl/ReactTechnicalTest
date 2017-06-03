@@ -33,10 +33,11 @@ class Form extends React.Component {
         this.state = {
             userName: ''
         };
-        // this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(event){
     event.preventDefault();
+    debugger;
     axios.get(`https://api.github.com/users/${this.state.userName}`)
       .then(resp => {
         this.props.onSubmit(resp.data);
@@ -62,6 +63,7 @@ class App extends React.Component {
         this.state = {
             cards: []
         };
+        this.addNewCard = this.addNewCard.bind(this);
     }
 
   addNewCard(cardInfo){
