@@ -32,8 +32,8 @@ export function getUserInfo(userName){
     });
 }
 
-export function getUserRepos(userName){
-    return axios.get(`https://api.github.com/users/${userName}/repos`, {params:{sort:'created'}})
+export function getUserRepos(userName, direction){
+    return axios.get(`https://api.github.com/users/${userName}/repos`, {params:{sort:'created', direction: direction}})
         .then(resp => {
             addTimeSinceRepoUpdate(resp.data);
             return resp.data;

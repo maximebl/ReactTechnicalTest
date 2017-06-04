@@ -14,9 +14,8 @@ export default class GitHubUserRepos extends React.Component {
     }
     
     addNewCard = (searchResult) => {
-        debugger;
         this.setState(prevState => ({
-            cards: prevState.cards.concat(searchResult.userRepos),
+            cards: searchResult.userRepos,
             resultHeader: searchResult.userInfo
         }));
     };
