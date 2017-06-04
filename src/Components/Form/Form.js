@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react';
 import axios from 'axios';
-import getUserRepos from '../../utils/api.js';
+import getUserRepos from '../../tools/api.js';
 
 export default class Form extends React.Component {
     constructor(props) {

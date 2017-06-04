@@ -23,7 +23,7 @@ export default class GitHubUserRepos extends React.Component {
     return (
       <div>
         <Form onSubmit={this.addNewCard} />
-        {/*user presentation component here*/}
+        {/*result header component here*/}
         <CardList cards={this.state.cards} />
       </div>
     );
