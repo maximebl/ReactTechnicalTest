@@ -14510,9 +14510,9 @@ var Card = function Card(props) {
 
   function getTimeSinceUpdateString() {
     debugger;
-    var daysSinceUpdate = props.time_since_update.days > 0 ? props.time_since_update.days + " days" : '';
-    var hoursSinceUpdate = props.time_since_update.hours > 0 ? props.time_since_update.hours + " hours" : '';
-    var minutesSinceUpdate = props.time_since_update.minutes > 0 ? props.time_since_update.minutes + " minutes" : '';
+    var daysSinceUpdate = props.time_since_update.days > 0 ? props.time_since_update.days + " days " : '';
+    var hoursSinceUpdate = props.time_since_update.hours > 0 ? props.time_since_update.hours + " hours " : '';
+    var minutesSinceUpdate = props.time_since_update.minutes > 0 ? props.time_since_update.minutes + " minutes " : '';
     var timeSinceUpdate = daysSinceUpdate + hoursSinceUpdate + minutesSinceUpdate;
     return timeSinceUpdate;
   }
