@@ -1,7 +1,7 @@
 'use strict'
 import React from 'react';
 import axios from 'axios';
-import getUserRepos from '../../tools/api.js';
+import {getUserRepos, getUserInfo} from '../../tools/api.js';
 
 export default class Form extends React.Component {
     constructor(props) {
@@ -14,13 +14,24 @@ export default class Form extends React.Component {
 
 handleSubmit(event){
     event.preventDefault();
-    getUserRepos(this.state.userName).then(
-        (userRepos) => {
-            this.props.onSubmit(userRepos);
-            this.setState({ userName: '' });
+
+    axios.all([
+        getUserInfo(this.state.userName),
+        getUserRepos(this.state.userName)
+    ]).then((data) => {
+
+        let userInfo = data[0];
+        let userRepos = data[1];
+
+        let result = {
+            userInfo: userInfo,
+            userRepos: userRepos
         }
-    );
-};
+
+        this.props.onSubmit(result);
+        this.setState({ userName: '' });
+    });
+    };
 
   render() {
     return (
