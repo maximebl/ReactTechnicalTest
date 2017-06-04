@@ -8,10 +8,10 @@ const app = express();
 app.get('/', function (req, res) {
   res.sendFile(path.resolve('./src/index.html'));
 });
+
 app.get('/dist/indexEntry.js', function (req, res) {
   res.sendFile(path.resolve('./dist/indexEntry.js'));
 });
-
 
 app.listen(3000, function (err) {
     if(err){
