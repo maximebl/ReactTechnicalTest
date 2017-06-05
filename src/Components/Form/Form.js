@@ -11,6 +11,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+// Required at the top of the script to properly dispatch Material-UI components onClick events.
 injectTapEventPlugin();
 
 export default class Form extends React.Component {
@@ -27,14 +28,13 @@ handleChange = (event, index, value) => {
 };
 
 handleSubmit = (event) => {
-    debugger;
     event.preventDefault();
 
     axios.all([
         getUserInfo(this.state.userName),
         getUserRepos(this.state.userName, this.state.value)
     ]).then((data) => {
-
+        debugger;
         let userInfo = data[0];
         let userRepos = data[1];
 
@@ -50,20 +50,20 @@ handleSubmit = (event) => {
 
   render() {
     return (
-        <div>
+    <div>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
             <div>
                 <TextField
                     hintText="Enter username here"
                     floatingLabelText="GitHub username"
                     onChange={(event) => this.setState({ userName: event.target.value })}
-                    value={this.state.userName}/>
+                    value={this.state.userName} />
 
                 <RaisedButton
                     label="Go"
                     style={{margin:12, fontWeight:'bold'}}
                     icon={<ActionSearch />}
-                    onClick={this.handleSubmit}/>
+                    onClick={this.handleSubmit} />
 
                 <SelectField floatingLabelText="Ordering"
                     value={this.state.value}
@@ -73,15 +73,7 @@ handleSubmit = (event) => {
                 </SelectField>
             </div>
         </MuiThemeProvider>
-        {/*<form onSubmit={this.handleSubmit}>
-            <input type="text"
-            value={this.state.userName}
-            onChange={(event) => this.setState({ userName: event.target.value })}
-            placeholder="Github username" required />
-            <button type="submit">Go</button>
-            
-        </form>*/}
-      </div>
+    </div>
     );
   }
 }

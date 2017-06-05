@@ -6,7 +6,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <GitHubUserRepos top={10}></GitHubUserRepos> 
+        <GitHubUserRepos></GitHubUserRepos> 
       </div>
     );
   }

@@ -20548,7 +20548,7 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_GitHubUserRepos2.default, { top: 10 })
+        _react2.default.createElement(_GitHubUserRepos2.default, null)
       );
     }
   }]);
@@ -20581,14 +20581,29 @@ var _Card2 = _interopRequireDefault(_Card);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CardList = function CardList(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    props.cards.map(function (card) {
-      return _react2.default.createElement(_Card2.default, _extends({ key: card.id }, card));
-    })
-  );
+var CardList = function CardList(_ref) {
+  var cards = _ref.cards,
+      top = _ref.top;
+
+  debugger;
+  if (top) {
+    var topCards = cards.slice(0, top);
+    return _react2.default.createElement(
+      'div',
+      null,
+      topCards.map(function (card) {
+        return _react2.default.createElement(_Card2.default, _extends({ key: card.id }, card));
+      })
+    );
+  } else {
+    return _react2.default.createElement(
+      'div',
+      null,
+      cards.map(function (card) {
+        return _react2.default.createElement(_Card2.default, _extends({ key: card.id }, card));
+      })
+    );
+  }
 };
 
 exports.default = CardList;
@@ -20708,6 +20723,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// Required at the top of the script to properly dispatch Material-UI components onClick events.
 (0, _reactTapEventPlugin2.default)();
 
 var Form = function (_React$Component) {
@@ -20723,11 +20739,10 @@ var Form = function (_React$Component) {
         };
 
         _this.handleSubmit = function (event) {
-            debugger;
             event.preventDefault();
 
             _axios2.default.all([(0, _api.getUserInfo)(_this.state.userName), (0, _api.getUserRepos)(_this.state.userName, _this.state.value)]).then(function (data) {
-
+                debugger;
                 var userInfo = data[0];
                 var userRepos = data[1];
 
@@ -20861,8 +20876,8 @@ var GitHubUserRepos = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(_Form2.default, { onClick: this.addNewCard }),
-                _react2.default.createElement(_ResultHeader2.default, { result: this.state.resultHeader }),
-                _react2.default.createElement(_CardList2.default, { cards: this.state.cards })
+                _react2.default.createElement(_ResultHeader2.default, { result: this.state.resultHeader, resultCount: this.state.cards.length }),
+                _react2.default.createElement(_CardList2.default, { cards: this.state.cards, top: this.props.top })
             );
         }
     }]);
@@ -20893,7 +20908,8 @@ var ResultHeader = function ResultHeader(_ref) {
     var _ref$result = _ref.result,
         login = _ref$result.login,
         avatar_url = _ref$result.avatar_url,
-        public_repos = _ref$result.public_repos;
+        public_repos = _ref$result.public_repos,
+        resultCount = _ref.resultCount;
 
     debugger;
     return _react2.default.createElement(
@@ -20911,10 +20927,16 @@ var ResultHeader = function ResultHeader(_ref) {
             'Found ',
             _react2.default.createElement(
                 'span',
-                { style: { fontWeight: "bold" } },
+                { style: { fontWeight: 'bold' } },
                 public_repos
             ),
-            ' repositories.'
+            ' repositories. Showing ',
+            _react2.default.createElement(
+                'span',
+                { style: { fontWeight: 'bold' } },
+                resultCount,
+                '.'
+            )
         )
     );
 };
@@ -21039,7 +21061,7 @@ function getUserInfo(userName) {
 }
 
 function getUserRepos(userName, direction) {
-    return _axios2.default.get('https://api.github.com/users/' + userName + '/repos', { params: { sort: 'created', direction: direction } }).then(function (resp) {
+    return _axios2.default.get('https://api.github.com/users/' + userName + '/repos?per_page=100', { params: { sort: 'created', direction: direction, type: 'owner' } }).then(function (resp) {
         addTimeSinceRepoUpdate(resp.data);
         return resp.data;
     });

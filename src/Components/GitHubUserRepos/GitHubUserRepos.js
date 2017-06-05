@@ -24,8 +24,8 @@ export default class GitHubUserRepos extends React.Component {
     return (
       <div>
         <Form onClick={this.addNewCard} />
-        <ResultHeader result={this.state.resultHeader}/>
-        <CardList cards={this.state.cards} />
+        <ResultHeader result={this.state.resultHeader} resultCount={this.state.cards.length}/>
+        <CardList cards={this.state.cards} top={this.props.top}/>
       </div>
     );
   }

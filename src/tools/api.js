@@ -33,7 +33,7 @@ export function getUserInfo(userName){
 }
 
 export function getUserRepos(userName, direction){
-    return axios.get(`https://api.github.com/users/${userName}/repos`, {params:{sort:'created', direction: direction}})
+    return axios.get(`https://api.github.com/users/${userName}/repos?per_page=100`, {params:{sort:'created', direction: direction, type:'owner'}})
         .then(resp => {
             addTimeSinceRepoUpdate(resp.data);
             return resp.data;
