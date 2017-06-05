@@ -23,7 +23,7 @@ export default class GitHubUserRepos extends React.Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.addNewCard} />
+        <Form onClick={this.addNewCard} />
         <ResultHeader result={this.state.resultHeader}/>
         <CardList cards={this.state.cards} />
       </div>
