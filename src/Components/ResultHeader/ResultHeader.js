@@ -3,7 +3,7 @@ import React from 'react';
 
 const ResultHeader = ({result:{login, avatar_url, public_repos}, resultCount, visible}) => {
   return (
-    <div style={ visible ? {display:'flex'} : {display:'none'} }>
+    <div className={ visible ? "resultHeader--visible" : "resultHeader--hidden" }>
         <div>
             <img src={avatar_url} width='200px'/>
         </div>

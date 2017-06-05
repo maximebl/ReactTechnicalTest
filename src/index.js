@@ -1,5 +1,6 @@
 'use strict'
 import './index.css';
+import './Components/ResultHeader/ResultHeaderStyles.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './Components/App/App.js';

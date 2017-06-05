@@ -1,0 +1,6 @@
+.resultHeader--visible{
+    display: flex;
+}
+.resultHeader--hidden{
+    display: none;
+}

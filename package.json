@@ -4,6 +4,7 @@
   "description": "Simple web page for Octopus React technical test.",
   "main": "index.js",
   "scripts": {
+    "test": "jest",
     "start": "npm-run-all --parallel security-check pack open:src",
     "pack": "webpack --config webpack.config.dev.js",
     "open:src": "babel-node buildScripts/srcServer.js",
@@ -29,6 +30,8 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4",
     "npm-run-all": "^4.0.2",
     "nsp": "^2.6.3",
     "open": "0.0.5",
@@ -44,5 +47,13 @@
     "react-dom": "^15.5.4",
     "react-tap-event-plugin": "^2.0.1"
   },
-  "jest": {}
+  "jest": {
+    "verbose": true,
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleFileExtensions":["js"],
+    "collectCoverage": true,
+    "unmockedModulePathPatterns": ["react"]
+  }
 }
