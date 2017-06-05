@@ -34,7 +34,6 @@ handleSubmit = (event) => {
         getUserInfo(this.state.userName),
         getUserRepos(this.state.userName, this.state.value)
     ]).then((data) => {
-        debugger;
         let userInfo = data[0];
         let userRepos = data[1];
 
@@ -52,21 +51,22 @@ handleSubmit = (event) => {
     return (
     <div>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <div>
+            <div style={{display:'table', width:'100%'}}>
                 <TextField
                     hintText="Enter username here"
+                    style={{marginRight:'20px'}}
                     floatingLabelText="GitHub username"
                     onChange={(event) => this.setState({ userName: event.target.value })}
                     value={this.state.userName} />
 
                 <RaisedButton
                     label="Go"
-                    style={{margin:12, fontWeight:'bold'}}
                     icon={<ActionSearch />}
                     onClick={this.handleSubmit} />
 
                 <SelectField floatingLabelText="Ordering"
                     value={this.state.value}
+                    style={{display:'table-cell'}}
                     onChange={this.handleChange}>
                     <MenuItem value={'desc'} primaryText='Most recent first' />
                     <MenuItem value={'asc'} primaryText='Oldest first' />

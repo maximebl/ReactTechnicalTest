@@ -3,7 +3,6 @@ import React from 'react';
 import Card from '../Card/Card.js';
 
 const CardList = ({cards, top}) => {
-  debugger;
   if(top){
       let topCards = cards.slice(0, top);
       return (

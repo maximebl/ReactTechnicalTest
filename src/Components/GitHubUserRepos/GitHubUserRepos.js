@@ -9,22 +9,27 @@ export default class GitHubUserRepos extends React.Component {
         super(props);
         this.state = {
             cards: [],
-            resultHeader:{},
+            resultHeader: {},
+            headerVisible: false,
         };
     }
     
     addNewCard = (searchResult) => {
         this.setState(prevState => ({
             cards: searchResult.userRepos,
-            resultHeader: searchResult.userInfo
+            resultHeader: searchResult.userInfo,
+            headerVisible: true
         }));
     };
 
   render() {
     return (
-      <div>
+      <div className="card-container">
         <Form onClick={this.addNewCard} />
-        <ResultHeader result={this.state.resultHeader} resultCount={this.state.cards.length}/>
+        <ResultHeader 
+            result={this.state.resultHeader} 
+            resultCount={this.state.cards.length}
+            visible={this.state.headerVisible}/>
         <CardList cards={this.state.cards} top={this.props.top}/>
       </div>
     );

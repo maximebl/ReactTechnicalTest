@@ -5,8 +5,8 @@ import {formatTimeSinceUpdate} from '../../tools/stringUtils';
 const Card = (props) => {
 
   return (
-      <div style={{margin: '1em'}}>
-      <div style={{display: 'inline-block', marginLeft: 10}}>
+      <div >
+        <div className="card">
         <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>
             {props.name}
         </div>
