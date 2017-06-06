@@ -11,6 +11,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
 // Required at the top of the script to properly dispatch Material-UI components onClick events.
 injectTapEventPlugin();
 
@@ -49,27 +50,33 @@ handleSubmit = (event) => {
 
   render() {
     return (
+    // ref attributes are used to properly select Material-UI components during unit tests only.
     <div>
         <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
-            <div style={{display:'table', width:'100%'}}>
+            <div className={this.props.visible ? 'form--visible' : 'form--hidden'}>
                 <TextField
-                    hintText="Enter username here"
-                    style={{marginRight:'20px'}}
-                    floatingLabelText="GitHub username"
+                    ref='UsernameField'
+                    className='UsernameField'
+                    hintText='Enter username here'
+                    floatingLabelText='GitHub username'
                     onChange={(event) => this.setState({ userName: event.target.value })}
                     value={this.state.userName} />
 
                 <RaisedButton
-                    label="Go"
+                    ref='SubmitButton'
+                    className='SubmitButton'
+                    label='Go'
                     icon={<ActionSearch />}
                     onClick={this.handleSubmit} />
 
-                <SelectField floatingLabelText="Ordering"
+                <SelectField 
+                    ref='OrderingList'
+                    className='OrderingList'
+                    floatingLabelText='Ordering'
                     value={this.state.value}
-                    style={{display:'table-cell'}}
                     onChange={this.handleChange}>
-                    <MenuItem value={'desc'} primaryText='Most recent first' />
-                    <MenuItem value={'asc'} primaryText='Oldest first' />
+                        <MenuItem value={'desc'} primaryText='Most recent first' />
+                        <MenuItem value={'asc'} primaryText='Oldest first' />
                 </SelectField>
             </div>
         </MuiThemeProvider>

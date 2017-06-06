@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1496704399314" clover="3.2.0">
-  <project timestamp="1496704399314" name="All files">
-    <metrics statements="54" coveredstatements="17" conditionals="12" coveredconditionals="2" methods="23" coveredmethods="6" elements="89" coveredelements="25" complexity="0" loc="54" ncloc="54" packages="6" files="7" classes="7">
+<coverage generated="1496776489554" clover="3.2.0">
+  <project timestamp="1496776489554" name="All files">
+    <metrics statements="54" coveredstatements="17" conditionals="14" coveredconditionals="4" methods="23" coveredmethods="6" elements="91" coveredelements="27" complexity="0" loc="54" ncloc="54" packages="6" files="7" classes="7">
       <package name="Components.Card">
         <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <file name="Card.js" path="C:\Users\maxim\Documents\Visual Studio 2017\Projects\ReactTechnicalTest\src\Components\Card\Card.js">
@@ -24,22 +24,22 @@
         </file>
       </package>
       <package name="Components.Form">
-        <metrics statements="13" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="2"/>
         <file name="Form.js" path="C:\Users\maxim\Documents\Visual Studio 2017\Projects\ReactTechnicalTest\src\Components\Form\Form.js">
-          <metrics statements="13" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
-          <line num="15" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="20" count="1" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
-          <line num="33" count="0" type="stmt"/>
-          <line num="37" count="0" type="stmt"/>
+          <metrics statements="13" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="2"/>
+          <line num="16" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
           <line num="38" count="0" type="stmt"/>
-          <line num="40" count="0" type="stmt"/>
-          <line num="45" count="0" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
           <line num="46" count="0" type="stmt"/>
-          <line num="51" count="1" type="stmt"/>
-          <line num="59" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="52" count="2" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
         </file>
       </package>
       <package name="Components.GitHubUserRepos">
@@ -48,8 +48,8 @@
           <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
           <line num="9" count="1" type="stmt"/>
           <line num="10" count="1" type="stmt"/>
-          <line num="18" count="0" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
         </file>
       </package>
       <package name="Components.ResultHeader">
@@ -64,10 +64,10 @@
         <metrics statements="26" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <file name="api.js" path="C:\Users\maxim\Documents\Visual Studio 2017\Projects\ReactTechnicalTest\src\tools\api.js">
           <metrics statements="18" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="0"/>
-          <line num="3" count="1" type="stmt"/>
-          <line num="4" count="1" type="stmt"/>
-          <line num="5" count="1" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
           <line num="9" count="0" type="stmt"/>
           <line num="11" count="0" type="stmt"/>
           <line num="13" count="0" type="stmt"/>

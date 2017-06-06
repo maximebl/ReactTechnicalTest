@@ -1,0 +1,15 @@
+.UsernameInputTextField{
+    margin-right: 20px;
+}
+
+.OrderingInputSelectField{
+    display: table-cell !important;
+}
+
+.form--visible{
+    display: table;
+}
+
+.form--hidden{
+    display: none;
+}

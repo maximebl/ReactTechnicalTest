@@ -11,6 +11,7 @@ export default class GitHubUserRepos extends React.Component {
             cards: [],
             resultHeader: {},
             headerVisible: false,
+            formVisible: true,
         };
     }
     
@@ -22,16 +23,22 @@ export default class GitHubUserRepos extends React.Component {
         }));
     };
 
-  render() {
-    return (
-      <div className="card-container">
-        <Form onClick={this.addNewCard} />
-        <ResultHeader 
-            result={this.state.resultHeader} 
-            resultCount={this.state.cards.length}
-            visible={this.state.headerVisible}/>
-        <CardList cards={this.state.cards} top={this.props.top}/>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className='card-container'>
+                <Form
+                    onClick={this.addNewCard}
+                    visible={this.state.formVisible} />
+
+                <ResultHeader 
+                    result={this.state.resultHeader} 
+                    resultCount={this.state.cards.length}
+                    visible={this.state.headerVisible}/>
+
+                <CardList 
+                    cards={this.state.cards} 
+                    top={this.props.top}/>
+            </div>
+        );
+    }
 }
