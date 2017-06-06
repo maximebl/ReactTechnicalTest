@@ -1,18 +1,18 @@
 'use strict'
 import React from 'react';
 
-const ResultHeader = ({result:{login, avatar_url, public_repos}, resultCount, visible}) => {
+const ResultHeader = ({result: {login, avatar_url, public_repos}, resultCount, visible}) => {
   return (
     <div className={ visible ? "resultHeader--visible" : "resultHeader--hidden" }>
         <div>
-            <img src={avatar_url} width='200px'/>
+            <img src={avatar_url} className='avatarImage'/>
         </div>
-        <div style={{flex:1, paddingLeft:'20px'}}>
-            <div>{login}</div>
-            <div style={{fontWeight: 'bold'}}>Repositories</div>
+        <div className='FoundRepoInfo'>
+            <div >{login}</div>
+            <div className='AccentInfo'>Repositories</div>
             <div>
-                Found <span style={{fontWeight: 'bold'}}>{public_repos}</span> repositories. 
-                Showing <span style={{fontWeight: 'bold'}}>{resultCount}.</span>
+                Found <span className='AccentInfo'>{public_repos}</span> repositories. 
+                Showing <span className='AccentInfo'>{resultCount}.</span>
             </div>
         </div>
     </div>

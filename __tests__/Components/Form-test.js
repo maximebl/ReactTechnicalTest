@@ -1,3 +1,4 @@
+'use strict'
 import Form from '../../src/Components/Form/Form';
 import React from 'react';
 import TestUtils from 'react-dom/test-utils';

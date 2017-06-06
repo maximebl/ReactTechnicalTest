@@ -1,8 +1,8 @@
-.UsernameInputTextField{
+.UsernameField{
     margin-right: 20px;
 }
 
-.OrderingInputSelectField{
+.OrderingList{
     display: table-cell !important;
 }
 

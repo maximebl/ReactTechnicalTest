@@ -1,0 +1,14 @@
+.RepoName{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.RepoDescription{
+    font-size: 1em;
+    font-weight: lighter;
+}
+
+.RepoTimeSinceLastUpdate{
+    font-size: 0.5em;
+    font-weight: lighter;
+}

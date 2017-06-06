@@ -2,26 +2,26 @@
 import React from 'react';
 import {formatTimeSinceUpdate} from '../../tools/stringUtils';
 
-const Card = (props) => {
+const Card = ({name, description, time_since_update}) => {
 
   return (
-      <div >
+    <div >
         <div className="card">
-        <div style={{fontSize: '1.25em', fontWeight: 'bold'}}>
-            {props.name}
+            <div className='RepoName'>
+                {name}
+            </div>
+            <div className='RepoDescription'>
+                {description}
+            </div>
+            <div className='RepoTimeSinceLastUpdate'>
+                {
+                    `Updated ${formatTimeSinceUpdate(
+                        time_since_update.days, 
+                        time_since_update.hours, 
+                        time_since_update.minutes)} ago.`
+                }
+            </div>
         </div>
-        <div style={{fontSize: '1em', fontWeight: 'lighter'}}>
-            {props.description}
-        </div>
-        <div style={{fontSize: '0.5em', fontWeight: 'lighter'}}>
-            {
-                `Updated ${formatTimeSinceUpdate(
-                props.time_since_update.days, 
-                props.time_since_update.hours, 
-                props.time_since_update.minutes)} ago.`
-            }
-        </div>
-      </div>
     </div>
   );
 };

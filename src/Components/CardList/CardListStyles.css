@@ -1,0 +1,7 @@
+.cardList--visible{
+    display: block;
+}
+
+.cardList--hidden{
+    display: none;
+}
