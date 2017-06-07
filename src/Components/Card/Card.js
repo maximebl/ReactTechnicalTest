@@ -3,7 +3,6 @@ import React from 'react';
 import {formatTimeSinceUpdate} from '../../tools/stringUtils';
 
 const Card = ({name, description, time_since_update}) => {
-
   return (
     <div >
         <div className="card">

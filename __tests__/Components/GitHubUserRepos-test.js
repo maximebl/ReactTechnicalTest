@@ -1,3 +1,4 @@
+'use strict'
 import GitHubUserRepos from '../../src/Components/GitHubUserRepos/GitHubUserRepos';
 import Form from '../../src/Components/Form/Form';
 import React from 'react';
@@ -14,7 +15,7 @@ describe('When the GitHubUserRepos component is rendered', ()=>{
                 gitHubUserRepos,
                 Form
             );
-            
+
             expect(TestUtils.isCompositeComponentWithType(
                 FormComponent,
                 Form
@@ -32,8 +33,8 @@ describe('When the GitHubUserRepos component is rendered', ()=>{
         it('should have a CardList which is not visible', ()=>{
             let onlyCardList = TestUtils.findRenderedDOMComponentWithClass(
                 gitHubUserRepos,
-                'resultHeader--hidden'
+                'cardList--hidden'
             )
-            expect(gitHubUserRepos.state.headerVisible).toBe(false);
+            expect(gitHubUserRepos.state.cardListVisible).toBe(false);
         })
 })

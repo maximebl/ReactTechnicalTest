@@ -9,20 +9,30 @@ export default class GitHubUserRepos extends React.Component {
         super(props);
         this.state = {
             resultHeader: {},
+            cards: [],
             headerVisible: false,
             formVisible: true,
-            cards: [],
             cardListVisible: false,
+            error: false,
         };
     }
     
     addNewCard = (searchResult) => {
-        this.setState(prevState => ({
-            cards: searchResult.userRepos,
-            resultHeader: searchResult.userInfo,
-            headerVisible: true,
-            cardListVisible: true,
-        }));
+        if (searchResult.success) {
+            this.setState(prevState => ({
+                cards: searchResult.userRepos,
+                resultHeader: searchResult.userInfo,
+                headerVisible: true,
+                cardListVisible: true,
+                error: false
+            }));
+        }
+        else {
+            this.setState(prevState => ({
+                error: true,
+            }));
+        }
+
     };
 
     render() {
@@ -30,7 +40,8 @@ export default class GitHubUserRepos extends React.Component {
             <div className='card-container'>
                 <Form
                     visible={this.state.formVisible}
-                    onClick={this.addNewCard}/>
+                    onClick={this.addNewCard}
+                    error={this.state.error}/>
 
                 <ResultHeader 
                     visible={this.state.headerVisible}

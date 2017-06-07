@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">37.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>3/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/4</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>3/6</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -87,7 +87,21 @@
 42
 43
 44
-45</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -97,6 +111,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,6 +157,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict'
 import React from 'react';
 import Form from '../Form/Form.js';
@@ -141,39 +169,53 @@ export default class GitHubUserRepos extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: [],
             resultHeader: {},
+            cards: [],
             headerVisible: false,
             formVisible: true,
+            cardListVisible: false,
+            error: false,
         };
     }
     
     addNewCard = <span class="fstat-no" title="function not covered" >(s</span>earchResult) =&gt; {
-<span class="cstat-no" title="statement not covered" >        this.setState(<span class="fstat-no" title="function not covered" >pr</span>evState =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
-            cards: searchResult.userRepos,
-            resultHeader: searchResult.userInfo,
-            headerVisible: true
-        }));
+<span class="cstat-no" title="statement not covered" >        if (searchResult.success) {</span>
+<span class="cstat-no" title="statement not covered" >            this.setState(<span class="fstat-no" title="function not covered" >pr</span>evState =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+                cards: searchResult.userRepos,
+                resultHeader: searchResult.userInfo,
+                headerVisible: true,
+                cardListVisible: true,
+                error: false
+            }));
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            this.setState(<span class="fstat-no" title="function not covered" >pr</span>evState =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
+                error: true,
+            }));
+        }
+&nbsp;
     };
 &nbsp;
-  render() {
-    return (
-      &lt;div className='card-container'&gt;
-        &lt;Form
-            onClick={this.addNewCard}
-            visible={this.state.formVisible} /&gt;
+    render() {
+        return (
+            &lt;div className='card-container'&gt;
+                &lt;Form
+                    visible={this.state.formVisible}
+                    onClick={this.addNewCard}
+                    error={this.state.error}/&gt;
 &nbsp;
-        &lt;ResultHeader 
-            result={this.state.resultHeader} 
-            resultCount={this.state.cards.length}
-            visible={this.state.headerVisible}/&gt;
+                &lt;ResultHeader 
+                    visible={this.state.headerVisible}
+                    result={this.state.resultHeader} 
+                    resultCount={this.state.cards.length}/&gt;
 &nbsp;
-        &lt;CardList 
-            cards={this.state.cards} 
-            top={this.props.top}/&gt;
-      &lt;/div&gt;
-    );
-  }
+                &lt;CardList
+                    visible={this.state.cardListVisible}
+                    cards={this.state.cards} 
+                    top={this.props.top}/&gt;
+            &lt;/div&gt;
+        );
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -181,7 +223,7 @@ export default class GitHubUserRepos extends React.Component {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 06 2017 15:14:49 GMT-0400 (Eastern Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jun 06 2017 23:13:14 GMT-0400 (Eastern Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

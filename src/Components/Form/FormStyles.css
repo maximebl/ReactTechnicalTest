@@ -3,13 +3,18 @@
 }
 
 .OrderingList{
-    display: table-cell !important;
+    display: inline-block;
 }
 
 .form--visible{
-    display: table;
+    display: block;
 }
 
 .form--hidden{
     display: none;
+}
+
+.SubmitButton{
+    margin-top: 20px;
+    width: 260px;
 }
